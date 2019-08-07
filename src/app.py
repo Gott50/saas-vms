@@ -1,8 +1,9 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
-vm_list = []
 
+class VMs(object):
+    list = []
 
 @app.route('/')
 def index():
@@ -15,7 +16,7 @@ def new_vm():
 
 
 def render_vm_list():
-    vms = vm_list
+    vms = VMs.list
     return render_template('vms.html', vms=vms)
 
 

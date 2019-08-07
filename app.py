@@ -6,6 +6,15 @@ vm_list = []
 
 @app.route('/')
 def index():
+    return render_vm_list()
+
+
+@app.route('/', methods=['POST'])
+def new_vm():
+    return render_vm_list()
+
+
+def render_vm_list():
     vms = vm_list
     return render_template('vms.html', vms=vms)
 

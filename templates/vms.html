@@ -1,6 +1,9 @@
 <!doctype html>
 <html class="no-js light_theme">
 <body>
+<form method="post" action="/">
+    <input type="submit" value="New VM"/>
+</form>
 {% for vm in vms %}
     <div>
         <a href="{{ vm }}"><h1>{{ vm }}</h1></a>

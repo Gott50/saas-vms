@@ -1,12 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
+vm_list = []
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    vms = vm_list
+    return render_template('vms.html', vms=vms)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)

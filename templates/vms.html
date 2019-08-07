@@ -1,0 +1,9 @@
+<!doctype html>
+<html class="no-js light_theme">
+<body>
+{% for vm in vms %}
+    <div>
+        <a href="{{ vm }}"><h1>{{ vm }}</h1></a>
+    </div>
+{% endfor %}
+</body>

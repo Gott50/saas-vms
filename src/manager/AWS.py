@@ -42,3 +42,18 @@ class AWS:
             instance = self.ec2.Instance(instance.id)
 
         return instance
+
+    def get_running_list(self):
+        return list(filter(lambda i: (i.state['Name'] == 'running'), self.get_instances()))
+
+    def get_instances(self):
+        response = self.client.describe_instances(Filters=[
+            {
+                'Name': 'image-id',
+                'Values': [
+                    IMAGE_ID,
+                ]
+            },
+        ], )
+        ids = list(map(lambda i: i['Instances'][0]['InstanceId'], response['Reservations']))
+        return list(map(lambda i: self.ec2.Instance(i), ids))

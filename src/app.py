@@ -5,9 +5,6 @@ from manager.activity import Activity
 app = Flask(__name__)
 activity = Activity(logger=app.logger)
 
-class VMs(object):
-    list = []
-
 @app.route('/')
 def index():
     return render_vm_list()
@@ -15,13 +12,12 @@ def index():
 
 @app.route('/', methods=['POST'])
 def new_vm():
-    bot_ip = activity.start_vm()
-    VMs.list += [bot_ip]
+    activity.start_vm()
     return render_vm_list()
 
 
 def render_vm_list():
-    vms = VMs.list
+    vms = activity.get_running_list()
     return render_template('vms.html', vms=vms)
 
 

@@ -23,3 +23,5 @@ class Activity:
         self.logger.warning("run start.sh on IP %s" % ip)
         return subprocess.Popen(["./start.sh_vm", ip])
 
+    def get_running_list(self):
+        return AWS.get_running_list()

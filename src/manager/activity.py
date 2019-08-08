@@ -19,7 +19,7 @@ class Activity:
 
         return ip
 
-    def cmd_start_bot(self, account, ip):
+    def cmd_start_bot(self, ip):
         self.logger.warning("run start.sh on IP %s" % ip)
         return subprocess.Popen(["./start.sh_vm", ip])
 

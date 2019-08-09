@@ -20,11 +20,6 @@ class AWS:
             ImageId=IMAGE_ID, InstanceType='t2.micro',
             KeyName=KEYNAME, SecurityGroups=SECURITYGROUPS,
             MaxCount=1, MinCount=1,
-            TagSpecifications=[
-                {
-                    'ResourceType': 'instance',
-                },
-            ],
         )[0]
         self.logger.warning("for User %s start new Instance: %s" % (instance))
 

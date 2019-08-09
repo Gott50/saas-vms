@@ -17,7 +17,7 @@ def new_vm():
 
 
 def render_vm_list():
-    vms = activity.get_running_list()
+    vms = activity.get_running_ip_list()
     return render_template('vms.html', vms=vms)
 
 

@@ -23,5 +23,5 @@ class Activity:
         self.logger.warning("run start.sh on IP %s" % ip)
         return subprocess.Popen(["./start.sh_vm", ip])
 
-    def get_running_list(self):
-        return self.aws.get_running_list()
+    def get_running_ip_list(self):
+        return list(map(lambda i: i.public_ip_address, self.aws.get_running_list()))

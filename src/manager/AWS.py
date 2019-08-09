@@ -2,8 +2,8 @@ import boto3
 import os
 from time import sleep
 
-KEYNAME = 'saas-bot'
-SECURITYGROUPS = ['saas-bot']
+KEYNAME = 'saas-vm'
+SECURITYGROUPS = ['saas-vms']
 IMAGE_ID = os.environ.get('IMAGE_ID')
 
 

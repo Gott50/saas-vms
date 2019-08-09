@@ -24,4 +24,4 @@ class Activity:
         return subprocess.Popen(["./start.sh_vm", ip])
 
     def get_running_list(self):
-        return AWS.get_running_list()
+        return self.aws.get_running_list()

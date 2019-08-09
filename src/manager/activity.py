@@ -21,7 +21,7 @@ class Activity:
 
     def cmd_start_bot(self, ip):
         self.logger.warning("run start.sh on IP %s" % ip)
-        return subprocess.Popen(["./start.sh_vm", ip])
+        return subprocess.Popen(["./start_vm.sh", ip])
 
     def get_running_ip_list(self):
         return list(map(lambda i: i.public_ip_address, self.aws.get_running_list()))

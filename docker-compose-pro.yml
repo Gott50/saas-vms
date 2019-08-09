@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dashboard:
+    image: gott50/saas-vms
+    ports:
+      - 5000:5000
+    environment:
+      - P_USER=ec2-user
+    env_file:
+      - .env/.bot-manager.env
+      - .env/.manager.env
+volumes:
+  uploads_data:

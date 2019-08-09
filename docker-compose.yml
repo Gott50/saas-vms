@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dashboard:
+    build: .
+    image: gott50/saas-vms
+    volumes:
+      - ./src:/app
+    ports:
+      - 5000:5000
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=development
+      - P_USER=ec2-user
+    env_file:
+      - .env/.bot-manager.env
+      - .env/.manager.env

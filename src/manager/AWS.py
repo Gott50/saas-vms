@@ -21,7 +21,7 @@ class AWS:
             KeyName=KEYNAME, SecurityGroups=SECURITYGROUPS,
             MaxCount=1, MinCount=1,
         )[0]
-        self.logger.warning("for User %s start new Instance: %s" % (instance))
+        self.logger.warning("new Instance: %s" % instance)
 
         return self.wait_for_instance(instance).public_ip_address
 

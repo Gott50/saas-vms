@@ -2,6 +2,17 @@
 <html class="no-js light_theme">
 <body>
 <form method="post" action="/">
+    <div>
+        <label for="width">width:
+            <input type="number" name="width">
+        </label>
+    </div>
+    <div>
+        <label for="height">height:
+            <input type="number" name="height">
+        </label>
+    </div>
+
     <input type="submit" value="New VM"/>
 </form>
 {% for vm in vms %}

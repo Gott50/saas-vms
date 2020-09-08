@@ -10,18 +10,18 @@ class Activity:
         self.logger = logger
         self.aws = AWS(logger)
 
-    def start_vm(self):
+    def start_vm(self, width=1920, height=1080):
         self.logger.warning("Start VM")
         ip = self.aws.start()
 
         sleep(120)
-        self.cmd_start_bot(ip)
+        self.cmd_start_bot(ip, width, height)
 
         return ip
 
-    def cmd_start_bot(self, ip):
-        self.logger.warning("run start.sh on IP %s" % ip)
-        return subprocess.Popen(["./start_vm.sh", ip])
+    def cmd_start_bot(self, ip, width=1920, height=1080):
+        self.logger.warning("run start_vm.sh on IP %s" % ip, width, height)
+        return subprocess.Popen(["./start_vm.sh", ip, width, height])
 
     def get_running_ip_list(self):
         return list(map(lambda i: i.public_ip_address, self.aws.get_running_list()))

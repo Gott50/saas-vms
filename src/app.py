@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from manager.activity import Activity
 
@@ -12,7 +12,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def new_vm():
-    activity.start_vm()
+    activity.start_vm(width=request.form['width'], height=request.form['height'])
     return render_vm_list()
 
 
